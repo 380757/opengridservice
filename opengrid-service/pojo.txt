@@ -1,0 +1,11 @@
+{
+  "firstName" : "Roderick",
+  "lastName" : "Ladines <rladines@eki-consulting.com>",
+  "userID" : "380657",
+  "email" : "rladines@eki-consulting.com",
+  "department" : null,
+  "deptNumber" : "ourNumber",
+  "map" : {
+    "now" : 1432155438849
+  }
+}
