@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Date;
@@ -56,9 +57,8 @@ public class MyJsonObject {
 		            
       // Map it to JSON, store it on disk and then read it back
       try {
-         
-          FileReader fr = new FileReader("c:/temp/Twitter.json");
-
+         // FileReader fr = new FileReader("json\twitter.json");
+    	  FileReader fr = new FileReader(new File("src/main/resources/json/json/twitter.json"));
           MyJsonObject pojo = (MyJsonObject) PojoMapper.fromJson(fr, MyJsonObject.class);
           System.out.println("POJO read from file:\n" + pojo);
 
