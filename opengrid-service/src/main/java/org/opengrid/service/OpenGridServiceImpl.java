@@ -392,6 +392,40 @@ public class OpenGridServiceImpl implements OpenGridService {
 	}
 	
 	@Override
+	public String excuteOpenGridQuery(String datasetId) {
+		
+		String retString = null;
+		
+		JsonObject pojo = new JsonObject();
+		
+		if (datasetId.equalsIgnoreCase("Twitter")) {
+			try {
+		          pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Twitter_GeoQuery.json")), JsonObject.class);
+		          
+		          retString = PojoMapper.toJson(pojo, true);
+
+		      } catch (Exception e) {
+		          e.printStackTrace();
+		      }
+			
+		}
+		else if (datasetId.equalsIgnoreCase("Weather")) {
+			try {
+
+				pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Weather_GeoQuery.json")), JsonObject.class);
+		          
+		          retString = PojoMapper.toJson(pojo, true);
+		      } catch (Exception e) {
+		          e.printStackTrace();
+		      }
+		}
+		else
+			return "No data set has been found !";
+		
+		return retString;
+	}
+	
+	@Override
 	public String excuteOpenGridQuery(String datasetId, String queryId) {
 	
 		String retString = null;
@@ -422,14 +456,13 @@ public class OpenGridServiceImpl implements OpenGridService {
 			}
 			else {
 				try {
-					   pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Twitter.json")), JsonObject.class);
+					   pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Twitter_JsonQuery.json")), JsonObject.class);
 			          
 			          retString = PojoMapper.toJson(pojo, true);
 
 			      } catch (Exception e) {
 			          e.printStackTrace();
-			      }
-				
+			      }				
 			}
 				
 		}
@@ -457,7 +490,7 @@ public class OpenGridServiceImpl implements OpenGridService {
 				}
 				else {
 					try {
-						  pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Weather.json")), JsonObject.class);
+						  pojo = (JsonObject) PojoMapper.fromJson(streamToString(readFileAsResource("json/Weather_JsonQuery.json")), JsonObject.class);
 				          
 				          retString = PojoMapper.toJson(pojo, true);
 

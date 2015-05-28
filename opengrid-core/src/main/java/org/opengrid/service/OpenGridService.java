@@ -185,7 +185,13 @@ public interface OpenGridService {
 	@Description(value="Resource", target="Doctarget.RESOURCE")
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML, MediaType.TEXT_PLAIN})
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML, MediaType.TEXT_PLAIN})
-	//@Path("/datasets/{datasetId}/query")
+	@Path("/datasets/{datasetId}/query/")
+	public String excuteOpenGridQuery(@PathParam("datasetId") final String datasetId);
+	
+	@GET 
+	@Description(value="Resource", target="Doctarget.RESOURCE")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML, MediaType.TEXT_PLAIN})
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_ATOM_XML, MediaType.TEXT_PLAIN})
 	@Path("/datasets/{datasetId}/query/{queryId}")
 	public String excuteOpenGridQuery(@PathParam("datasetId") final String datasetId, @PathParam("queryId") final String queryId);
 	
